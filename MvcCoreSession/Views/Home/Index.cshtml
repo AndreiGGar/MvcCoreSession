@@ -1,0 +1,22 @@
+﻿@using MvcCoreSession.Helpers;
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Persona persona = null;
+    if (Context.Session.GetString("PERSONA") != null)
+    {
+        string jsonPersona = Context.Session.GetString("PERSONA");
+        persona = HelperJsonSession.DeserializeObject<Persona>(jsonPersona);
+    }
+}
+
+<div class="text-center">
+    <h4>Proyecto Session</h4>
+    <p>Hora: @Context.Session.GetString("hora")</p>
+    <p>Nombre: @Context.Session.GetString("nombre")</p>
+    @if(persona != null)
+    {
+        <p>Datos persona: @persona.Nombre, @persona.Email, @persona.Edad</p>
+    }
+</div>

@@ -1,0 +1,32 @@
+﻿<h1>Session Simple</h1>
+
+<h1 style="color:red">
+    @ViewData["NUMERO"]
+</h1>
+
+<a asp-controller="EjemploSession"
+   asp-action="SessionSimple">
+    Session simple
+</a>
+
+<a asp-controller="EjemploSession"
+   asp-action="SessionSimple"
+   asp-route-accion="almacenar">
+    Almacenar
+</a>
+
+<a asp-controller="EjemploSession"
+   asp-action="SessionSimple"
+   asp-route-accion="mostrar">
+    Mostrar
+</a>
+
+<h3>@ViewData["MENSAJE"]</h3>
+
+<h2 style ="color:blue">
+    Usuario: @ViewData["USUARIO"]
+</h2>
+
+<h2 style ="color:fuchsia">
+    Hora: @ViewData["HORA"]
+</h2>

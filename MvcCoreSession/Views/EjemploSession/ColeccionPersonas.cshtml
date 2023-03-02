@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MvcCoreSession.Models.Persona>
+
+@{
+    ViewData["Title"] = "ColeccionPersonas";
+}
+
+<p>
+    <a asp-controller="EjemploSession"
+       asp-action="ColeccionPersonas"
+       asp-route-accion="almacenar">
+        Almacenar personas
+    </a>
+
+    <a asp-controller="EjemploSession"
+       asp-action="ColeccionPersonas"
+       asp-route-accion="mostrar">
+        Mostrar personas
+    </a>
+</p>
+
+<h1>ColeccionPersonas</h1>
+
+<h4>
+    @ViewData["MENSAJE"]
+</h4>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (Model != null)
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Edad)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
